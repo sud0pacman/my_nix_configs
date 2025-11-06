@@ -34,6 +34,28 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
+  # gpt script boshi
+  hardware.opengl.enable = true;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    open = false; # GTX 1650 Mobile uchun to‘g‘ri
+    nvidiaSettings = true;
+
+    prime = {
+      offload.enable = true;
+  
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:2:0:0";
+    };
+  };
+  # gpt script end
+
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;

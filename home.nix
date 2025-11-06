@@ -34,6 +34,8 @@
     unzip
     p7zip
     vim
+
+    telegram-desktop
   ];
  
   # oddiy git sozlamari, o'zingizga moslang
@@ -85,7 +87,7 @@
       k = "kubectl";
       urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
       urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-      rebuild-home = "home-manager switch --flake /home/muhammad/workplace/sud0pacman/nix-config#muhammad";
+      rebuild = "home-manager switch --flake /home/muhammad/workplace/sud0pacman/nix-config#muhammad";
       n = "neofetch";
     };
   };
