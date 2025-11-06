@@ -42,6 +42,20 @@
     userName = "sud0pacman";
     userEmail = "mukhammad.kammoliddin@gmail.com";
   };
+
+
+  # starship - istalgan buyruq satri ko'rinishi o'zgartiruvchi
+  programs.starship = {
+    enable = true;
+    # moslangan sozlamalar
+    settings = {
+      add_newline = false;
+      aws.disabled = true;
+      gcloud.disabled = true;
+      line_break.disabled = true;
+    };
+  };
+
  
   # alacritty - platformalarar-o, GPU orqali tezlatilgan buyruq satr emulyatori
   programs.alacritty = {
@@ -72,6 +86,7 @@
       urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
       urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
       rebuild =  "sudo nixos-rebuild switch --flake /home/muhammad/workplace/sud0pacman/nix-config";
+      n = "neofetch";
     };
   };
  
