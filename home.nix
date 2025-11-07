@@ -47,6 +47,7 @@
     userName = "sud0pacman";
     userEmail = "mukhammad.kammoliddin@gmail.com";
   };
+  
 
   # starship - istalgan buyruq satri ko'rinishi o'zgartiruvchi
   programs.starship = {
