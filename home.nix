@@ -41,6 +41,7 @@
     rustc
     cargo
     vscode
+    flutter
   ];
  
   # oddiy git sozlamari, o'zingizga moslang
@@ -86,6 +87,7 @@
     bashrcExtra = ''
       export PATH="$HOME/.cargo/bin:$PATH"
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      export PATH="$PATH:$HOME/flutter/bin"
     '';
     
     # qiqartma nomlar qo'shing, xoh qo'shing, xoh olib tashlang
@@ -97,6 +99,14 @@
       n = "neofetch";
     };
   };
+
+  # GitHub SSH kaliti uchun agentni avtomatik ishga tushirish
+  home.file.".bashrc".text = ''
+    if [ -z "$SSH_AUTH_SOCK" ]; then
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/my_ssh_key
+    fi
+  '';
  
   # Bu qiymat qaysi versiyadagi home-manager sozlamari bilan
   # to'g'ri kelishini belgilaydi. Bu ko'proq home manager ning
