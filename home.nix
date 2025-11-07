@@ -38,7 +38,9 @@
     telegram-desktop
 
     #coding
-    rustup
+    rustc
+    cargo
+    vscode
   ];
  
   # oddiy git sozlamari, o'zingizga moslang
