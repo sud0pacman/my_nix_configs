@@ -48,7 +48,6 @@
     userEmail = "mukhammad.kammoliddin@gmail.com";
   };
 
-
   # starship - istalgan buyruq satri ko'rinishi o'zgartiruvchi
   programs.starship = {
     enable = true;
@@ -104,7 +103,7 @@
   # Shu qiymat o'zgartirmayam home manager yangilasa bo'ladi. Ba'tafsil
   # har bir relizda bo'lgan o'zgarishlar home managerning relizlar 
   # eslatmasida ko'zdan kechirib chiqing.
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
  
   # Home Manager o'zini o'rnatishiga qo'yib beraylik
   programs.home-manager.enable = true;
