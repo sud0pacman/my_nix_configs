@@ -36,6 +36,9 @@
     vim
 
     telegram-desktop
+
+    #coding
+    rustup
   ];
  
   # oddiy git sozlamari, o'zingizga moslang
@@ -79,6 +82,7 @@
     enableCompletion = true;
     # ESLATMA o'zingizni bashrc'ingizni qo'shib keting
     bashrcExtra = ''
+      export PATH="$HOME/.cargo/bin:$PATH"
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
     
@@ -87,7 +91,7 @@
       k = "kubectl";
       urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
       urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-      rebuild = "home-manager switch --flake /home/muhammad/workplace/sud0pacman/nix-config#muhammad";
+      rebuild = "sudo nixos-rebuild switch --flake /home/muhammad/workplace/sud0pacman/nix-config#nixos";
       n = "neofetch";
     };
   };
