@@ -37,6 +37,8 @@
 
     telegram-desktop
     google-chrome
+    btop
+    chromium
 
     #coding
     rustc
@@ -89,9 +91,10 @@
       export PATH="$HOME/.cargo/bin:$PATH"
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       export PATH="$PATH:$HOME/flutter/bin"
-      if [ -z "$SSH_AUTH_SOCK" ] ; then
-        eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/my_ssh_key
+
+      if [ -z "$SSH_AUTH_SOCK" ]; then
+        eval "$(ssh-agent -s)" >/dev/null
+        ssh-add ~/.ssh/my_ssh_key >/dev/null 2>&1
       fi
     '';
     
@@ -104,17 +107,24 @@
       n = "neofetch";
     };
   };
+  
+  # PATH ga narsalarni qo‘shish
+  home.sessionPath = [
+    "${pkgs.flutter}/bin"
+    "${pkgs.rustc}/bin"
+    "${pkgs.cargo}/bin"
+    "$HOME/.local/bin"
+  ];
 
-  # PATH qo'shish
+  # Chrome (Flutter web uchun)
   home.sessionVariables = {
     PATH = "${pkgs.flutter}/bin:${pkgs.rustc}/bin:${pkgs.cargo}/bin:$HOME/.local/bin:$PATH";
+    CHROME_EXECUTABLE = "${pkgs.chromium}/bin/chromium";
   };
+
 
   # GitHub SSH kaliti uchun agentni avtomatik ishga tushirish
   
-
-
-
  
   # Bu qiymat qaysi versiyadagi home-manager sozlamari bilan
   # to'g'ri kelishini belgilaydi. Bu ko'proq home manager ning
