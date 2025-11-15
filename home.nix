@@ -45,6 +45,10 @@
     cargo
     vscode
     flutter
+
+    # hardware
+    alsa-utils
+    noisetorch
   ];
  
   # oddiy git sozlamari, o'zingizga moslang
@@ -91,11 +95,6 @@
       export PATH="$HOME/.cargo/bin:$PATH"
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       export PATH="$PATH:$HOME/flutter/bin"
-
-      if [ -z "$SSH_AUTH_SOCK" ]; then
-        eval "$(ssh-agent -s)" >/dev/null
-        ssh-add ~/.ssh/my_ssh_key >/dev/null 2>&1
-      fi
     '';
     
     # qiqartma nomlar qo'shing, xoh qo'shing, xoh olib tashlang

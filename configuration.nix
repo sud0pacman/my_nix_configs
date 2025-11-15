@@ -35,7 +35,8 @@
   services.xserver.enable = true;
 
   # gpt script boshi
-  hardware.opengl.enable = true;
+  #hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -71,6 +72,10 @@
 
   # Enable sound with pipewire.
   #services.pulseaudio.enable = false;
+  #security.rtkit.enable = true;
+
+  # google script start
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -84,6 +89,10 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  hardware.bluetooth.enable = true;
+  hardware.alsa.enablePersistence = true;
+  # google script end
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -110,6 +119,8 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    alsa-utils
+    pciutils
   ];
 
 
@@ -120,6 +131,15 @@
     '';
   };
 
+  # ssh config
+  programs.ssh = {
+    startAgent = true;
+    extraConfig = ''
+      AddKeysToAgent yes
+      IdentityFile ~/.ssh/my_ssh_key
+    '';
+  };
+  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
