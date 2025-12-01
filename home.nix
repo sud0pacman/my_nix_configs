@@ -47,8 +47,10 @@
     flutter
 
     # hardware
-    alsa-utils
-    noisetorch
+    # Ovoz va mikrofon uchun kerakli dasturlar
+    alsa-utils    # alsamixer va boshqa alsa vositalari uchun
+    noisetorch    # Shovqinni yo'qotish uchun
+    pavucontrol   # Grafik ovoz mikseri (juda foydali!)
   ];
  
   # oddiy git sozlamari, o'zingizga moslang
@@ -57,6 +59,28 @@
     userName = "sud0pacman";
     userEmail = "mukhammad.kammoliddin@gmail.com";
   };
+
+
+  # === NOISETORCH AVTOMATIK ISHGA TUSHIRISH UCHUN XIZMAT ===
+  systemd.user.services.noisetorch = {
+    Unit = {
+      Description = "NoiseTorch Noise Suppression";
+      # PipWire ishga tushgandan so'ng ishga tushishi uchun
+      After = [ "pipewire.service" ];
+      PartOf = [ "pipewire.service" ];
+    };
+    Service = {
+      # Sizning mikrofon manbaingizni shu yerga qo'ying!
+      ExecStart = "${pkgs.noisetorch}/bin/noisetorch -i alsa_input.pci-0000_00_1f.3.analog-stereo";
+      # Agar xatolik yuz bersa, qayta ishga tushirish
+      Restart = "on-failure";
+    };
+    Install = {
+      # Foydalanuvchi tizimga kirganda avtomatik ishga tushishi uchun
+      WantedBy = [ "default.target" ];
+    };
+  };
+  # === XIZMAT TUGADI ===
   
 
   # starship - istalgan buyruq satri ko'rinishi o'zgartiruvchi

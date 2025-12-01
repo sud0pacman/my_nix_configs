@@ -48,10 +48,10 @@
     nvidiaSettings = true;
 
     prime = {
-      offload.enable = true;
+      #offload.enable = true;
   
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:2:0:0";
+      #intelBusId = "PCI:0:2:0";
+      #nvidiaBusId = "PCI:2:0:0";
     };
   };
   # gpt script end
@@ -72,26 +72,21 @@
 
   # Enable sound with pipewire.
   #services.pulseaudio.enable = false;
-  #security.rtkit.enable = true;
+  security.rtkit.enable = true;
 
   # google script start
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # Agar JACK dasturlaridan foydalansangiz, quyidagini yoqing
+    # jack.enable = true;
   };
 
-  hardware.bluetooth.enable = true;
-  hardware.alsa.enablePersistence = true;
+  # Agar avval PulseAudio ishlatgan bo'lsangiz, uni aniq o'chirib qo'yish kerak
+  # PipeWire uning o'rnini egallaydi
+  hardware.pulseaudio.enable = false;
   # google script end
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -101,7 +96,7 @@
   users.users.muhammad = {
     isNormalUser = true;
     description = "muhammad";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
