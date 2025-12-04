@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
  
 {
   # Iltimos, foydalanuvchi nomini va uy katalogini oʻz holatingizga moslang
   home.username = "muhammad";
   home.homeDirectory = "/home/muhammad";
+
+  imports = [  # <-- Yangi bo'lim: Modullarni import qilish
+    inputs.nixvim.homeManagerModules.nixvim  # <-- NixVim modulini yuklash
+  ];
  
   # Joriy katalogdagi konfiguratsiya faylini koʻrsatilgan joyga bogʻlash
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -45,6 +49,10 @@
     cargo
     vscode
     flutter
+
+    gcc
+
+    #code editors
 
     # hardware
     # Ovoz va mikrofon uchun kerakli dasturlar
@@ -147,6 +155,51 @@
 
 
   # GitHub SSH kaliti uchun agentni avtomatik ishga tushirish
+
+  programs.nixvim = {
+  enable = true;
+  defaultEditor = true;
+
+  opts = {
+    number = true;
+    relativenumber = true;
+    shiftwidth = 2;
+    expandtab = true;
+  };
+
+  colorschemes.catppuccin.enable = true;  # Plugin yuklash
+
+  plugins = {
+    telescope.enable = true;
+    lualine.enable = true;
+    treesitter.enable = true;
+    treesitter.ensureInstalled = [ "lua" "nix" "rust" "python" "bash" ];
+    lsp = {
+      enable = true;
+      servers = {
+        nixd.enable = true;
+        lua-ls.enable = true;
+      };
+    };
+    cmp = {
+      enable = true;
+      autoEnableSources = true;
+    };
+  };
+
+  # Barcha extra Lua kodini bitta blokda birlashtir (theme + keymap'lar)
+  extraConfigLua = ''
+    -- Theme yuklash (avto)
+    vim.cmd.colorscheme 'catppuccin-mocha'
+
+    -- Leader va keymap'lar
+    vim.g.mapleader = " "
+    local builtin = require("telescope.builtin")
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+    vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
+    vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save" })
+  '';
+};
   
  
   # Bu qiymat qaysi versiyadagi home-manager sozlamari bilan
@@ -160,5 +213,5 @@
   home.stateVersion = "25.05";
  
   # Home Manager o'zini o'rnatishiga qo'yib beraylik
-  programs.home-manager.enable = true;
+  #programs.home-manager.enable = true;
 }
