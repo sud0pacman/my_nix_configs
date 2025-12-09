@@ -41,14 +41,14 @@
     chromium
 
     #coding
-    rustc
-    cargo
     vscode
     flutter
-
-    pkgs.clippy
-    pkgs.rustfmt
-    pkgs.rust-analyzer
+    
+    rustc
+    cargo
+    clippy
+    rustfmt
+    rust-analyzer
 
     gcc
 
@@ -139,15 +139,11 @@
   
   # PATH ga narsalarni qo‘shish
   home.sessionPath = [
-    "${pkgs.flutter}/bin"
-    "${pkgs.rustc}/bin"
-    "${pkgs.cargo}/bin"
     "$HOME/.local/bin"
   ];
 
   # Chrome (Flutter web uchun)
   home.sessionVariables = {
-    PATH = "${pkgs.flutter}/bin:${pkgs.rustc}/bin:${pkgs.cargo}/bin:$HOME/.local/bin:$PATH";
     RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
     CHROME_EXECUTABLE = "${pkgs.chromium}/bin/chromium";
   };
