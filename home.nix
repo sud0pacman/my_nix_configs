@@ -46,6 +46,12 @@
     vscode
     flutter
 
+    pkgs.clippy
+    pkgs.rustfmt
+    pkgs.rust-analyzer
+
+    gcc
+
     # hardware
     # Ovoz va mikrofon uchun kerakli dasturlar
     alsa-utils    # alsamixer va boshqa alsa vositalari uchun
@@ -142,6 +148,7 @@
   # Chrome (Flutter web uchun)
   home.sessionVariables = {
     PATH = "${pkgs.flutter}/bin:${pkgs.rustc}/bin:${pkgs.cargo}/bin:$HOME/.local/bin:$PATH";
+    RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
     CHROME_EXECUTABLE = "${pkgs.chromium}/bin/chromium";
   };
 
