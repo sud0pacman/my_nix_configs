@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -20,4 +22,3 @@
   home.file.".config/nvim/init.lua".source = ./init.lua;
   home.file.".config/nvim/lua".source = ./lua;
 }
-

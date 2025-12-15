@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh.shellAliases = {
     ll = "ls -lah";
     gs = "git status";
@@ -10,4 +12,3 @@
     rebuild = "sudo nixos-rebuild switch";
   };
 }
-

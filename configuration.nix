@@ -1,14 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  # home manager ni nixos moduli qilib yuklang
+  # shunda home manager sozlamalari avtomatik tarzda qo'shilib ketadi `nixos-rebuild` ishga tushurilganda
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    # ESLATMA ryan ni o'zingizni foydalanuvchi otingizga almashtiring
+    users.muhammad = import ./home.nix;
+    # Qo'shimchasiga home-manager.extraSpecialArgs ni home.nix ga argument oshirish uchun ishlatsangiz bo'ladi
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -38,7 +50,7 @@
   #hardware.opengl.enable = true;
   hardware.graphics.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -49,13 +61,12 @@
 
     prime = {
       #offload.enable = true;
-  
+
       #intelBusId = "PCI:0:2:0";
       #nvidiaBusId = "PCI:2:0:0";
     };
   };
   # gpt script end
-
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -96,10 +107,10 @@
   users.users.muhammad = {
     isNormalUser = true;
     description = "muhammad";
-    extraGroups = [ "networkmanager" "wheel" "audio" ];
+    extraGroups = ["networkmanager" "wheel" "audio"];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -114,12 +125,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     alsa-utils
     pciutils
   ];
-
 
   nix = {
     package = pkgs.nix;
@@ -139,8 +149,6 @@
 
   # bluetooth
   hardware.bluetooth.enable = true;
-
-  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -168,5 +176,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }

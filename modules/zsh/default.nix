@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -21,8 +23,7 @@
   };
 
   imports = [
-    ./aliases.nix
+    ./alias.nix
     ./options.nix
   ];
 }
-
