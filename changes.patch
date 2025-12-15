@@ -1,0 +1,16 @@
+diff --git a/home.nix b/home.nix
+index ff175ea..a8251bd 100644
+--- a/home.nix
++++ b/home.nix
+@@ -4,6 +4,11 @@
+   # Iltimos, foydalanuvchi nomini va uy katalogini oʻz holatingizga moslang
+   home.username = "muhammad";
+   home.homeDirectory = "/home/muhammad";
++
++  imports = [
++    ./modules/zsh
++  ];
++
+  
+   # Joriy katalogdagi konfiguratsiya faylini koʻrsatilgan joyga bogʻlash
+   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;

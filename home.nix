@@ -4,6 +4,11 @@
   # Iltimos, foydalanuvchi nomini va uy katalogini oʻz holatingizga moslang
   home.username = "muhammad";
   home.homeDirectory = "/home/muhammad";
+
+  imports = [
+    ./modules/zsh
+  ];
+
  
   # Joriy katalogdagi konfiguratsiya faylini koʻrsatilgan joyga bogʻlash
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
