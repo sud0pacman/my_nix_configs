@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
- 
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Iltimos, foydalanuvchi nomini va uy katalogini oʻz holatingizga moslang
   home.username = "muhammad";
   home.homeDirectory = "/home/muhammad";
@@ -9,30 +11,29 @@
     ./modules/zsh
   ];
 
- 
   # Joriy katalogdagi konfiguratsiya faylini koʻrsatilgan joyga bogʻlash
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
- 
+
   # `./scripts` ichidagi barcha fayllarni `~/.config/i3/scripts` ga bogʻlash
   # home.file.".config/i3/scripts" = {
   #   source = ./scripts;
   #   recursive = true;   # rekursiv bogʻlash
   #   executable = true;  # barcha fayllarni bajariladigan qilish
   # };
- 
+
   # Fayl mazmunini toʻgʻridan-toʻgʻri nix konfiguratsiyasiga yozish
   # home.file.".xxx".text = ''
   #     xxx
   # '';
- 
+
   # Foydalanuvchi profiliga oʻrnatilishi kerak boʻlgan paketlar
   home.packages = with pkgs; [
     # ushbu keltirilganlar men kunlik davomida ishlatadiganlarim
     # o'zingiznikini qo'shish yoki keltirilganlardan olib tashashdan tortinmang
-    
+
     neofetch
     nnn # terminal fayl menejer
-    
+
     # arxivlar
     zip
     xz
@@ -48,7 +49,7 @@
     #coding
     vscode
     flutter
-    
+
     rustc
     cargo
     clippy
@@ -59,13 +60,13 @@
 
     # hardware
     # Ovoz va mikrofon uchun kerakli dasturlar
-    alsa-utils    # alsamixer va boshqa alsa vositalari uchun
-    noisetorch    # Shovqinni yo'qotish uchun
-    pavucontrol   # Grafik ovoz mikseri (juda foydali!)
+    alsa-utils # alsamixer va boshqa alsa vositalari uchun
+    noisetorch # Shovqinni yo'qotish uchun
+    pavucontrol # Grafik ovoz mikseri (juda foydali!)
 
     libreoffice-qt-fresh
   ];
- 
+
   # oddiy git sozlamari, o'zingizga moslang
   programs.git = {
     enable = true;
@@ -73,14 +74,13 @@
     userEmail = "mukhammad.kammoliddin@gmail.com";
   };
 
-
   # === NOISETORCH AVTOMATIK ISHGA TUSHIRISH UCHUN XIZMAT ===
   systemd.user.services.noisetorch = {
     Unit = {
       Description = "NoiseTorch Noise Suppression";
       # PipWire ishga tushgandan so'ng ishga tushishi uchun
-      After = [ "pipewire.service" ];
-      PartOf = [ "pipewire.service" ];
+      After = ["pipewire.service"];
+      PartOf = ["pipewire.service"];
     };
     Service = {
       # Sizning mikrofon manbaingizni shu yerga qo'ying!
@@ -90,11 +90,10 @@
     };
     Install = {
       # Foydalanuvchi tizimga kirganda avtomatik ishga tushishi uchun
-      WantedBy = [ "default.target" ];
+      WantedBy = ["default.target"];
     };
   };
   # === XIZMAT TUGADI ===
-  
 
   # starship - istalgan buyruq satri ko'rinishi o'zgartiruvchi
   programs.starship = {
@@ -108,7 +107,6 @@
     };
   };
 
- 
   # alacritty - platformalarar-o, GPU orqali tezlatilgan buyruq satr emulyatori
   programs.alacritty = {
     enable = true;
@@ -123,7 +121,7 @@
       selection.save_to_clipboard = true;
     };
   };
- 
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -133,7 +131,7 @@
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       export PATH="$PATH:$HOME/flutter/bin"
     '';
-    
+
     # qiqartma nomlar qo'shing, xoh qo'shing, xoh olib tashlang
     shellAliases = {
       k = "kubectl";
@@ -143,7 +141,7 @@
       n = "neofetch";
     };
   };
-  
+
   # PATH ga narsalarni qo‘shish
   home.sessionPath = [
     "$HOME/.local/bin"
@@ -155,20 +153,18 @@
     CHROME_EXECUTABLE = "${pkgs.chromium}/bin/chromium";
   };
 
-
   # GitHub SSH kaliti uchun agentni avtomatik ishga tushirish
-  
- 
+
   # Bu qiymat qaysi versiyadagi home-manager sozlamari bilan
   # to'g'ri kelishini belgilaydi. Bu ko'proq home manager ning
   # eski versiya bilan chiqishmaydigan yangi versiyasi chiqganda
   # buzilib qolishlar oldini oladi.
-  # 
+  #
   # Shu qiymat o'zgartirmayam home manager yangilasa bo'ladi. Ba'tafsil
-  # har bir relizda bo'lgan o'zgarishlar home managerning relizlar 
+  # har bir relizda bo'lgan o'zgarishlar home managerning relizlar
   # eslatmasida ko'zdan kechirib chiqing.
   home.stateVersion = "25.05";
- 
+
   # Home Manager o'zini o'rnatishiga qo'yib beraylik
   programs.home-manager.enable = true;
 }

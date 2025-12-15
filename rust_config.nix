@@ -1,6 +1,5 @@
 # rust_config.nix
-{ pkgs }:
-
+{pkgs}:
 pkgs.mkShell {
   buildInputs = [
     pkgs.rust-bin.stable.latest.default
@@ -16,4 +15,3 @@ pkgs.mkShell {
     echo "Cargo version: $(cargo --version)"
   '';
 }
-

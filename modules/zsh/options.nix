@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh.initExtra = ''
     setopt autocd
     setopt correct
@@ -10,4 +12,3 @@
     bindkey -e
   '';
 }
-
