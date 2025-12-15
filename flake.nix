@@ -14,31 +14,21 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:let
+  outputs = inputs @ {nixpkgs, ...}: let
     pkgs = nixpkgs.legacyPackages."x86_64-linux";
-  in  {
+  in {
     devShells."x86_64-linux".default = import ./shell.nix {inherit pkgs;};
 
-    nixosConfigurations = {
-      # ESLATMA iltimos hostname `my-nixos` ni o'zingiznikiga moslang
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
+    formatter.x86_64-linux = pkgs.alejandra;
 
-          # home manager ni nixos moduli qilib yuklang
-          # shunda home manager sozlamalari avtomatik tarzda qo'shilib ketadi `nixos-rebuild` ishga tushurilganda
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+      ];
 
-            # ESLATMA ryan ni o'zingizni foydalanuvchi otingizga almashtiring
-            home-manager.users.muhammad = import ./home.nix;
-
-            # Qo'shimchasiga home-manager.extraSpecialArgs ni home.nix ga argument oshirish uchun ishlatsangiz bo'ladi
-          }
-        ];
+      specialArgs = {
+        inherit inputs;
       };
     };
   };
