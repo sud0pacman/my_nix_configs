@@ -57,6 +57,8 @@
     alsa-utils    # alsamixer va boshqa alsa vositalari uchun
     noisetorch    # Shovqinni yo'qotish uchun
     pavucontrol   # Grafik ovoz mikseri (juda foydali!)
+
+    libreoffice-qt-fresh
   ];
  
   # oddiy git sozlamari, o'zingizga moslang

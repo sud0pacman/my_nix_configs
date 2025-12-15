@@ -106,6 +106,8 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.direnv.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -134,6 +136,10 @@
       IdentityFile ~/.ssh/my_ssh_key
     '';
   };
+
+  # bluetooth
+  hardware.bluetooth.enable = true;
+
   
 
   # Some programs need SUID wrappers, can be configured further or are
