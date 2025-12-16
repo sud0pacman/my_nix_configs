@@ -127,6 +127,8 @@
     enableCompletion = true;
     # ESLATMA o'zingizni bashrc'ingizni qo'shib keting
     bashrcExtra = ''
+      unalias rebuild 2>/dev/null
+
       export PATH="$HOME/.cargo/bin:$PATH"
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       export PATH="$PATH:$HOME/flutter/bin"

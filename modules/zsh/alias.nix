@@ -9,6 +9,6 @@
     ga = "git add .";
     gc = "git commit";
     gco = "git checkout";
-    rebuild = "sudo nixos-rebuild switch";
+    rebuild = "sudo nixos-rebuild switch --flake /home/muhammad/workplace/sud0pacman/nix-config#nixos";
   };
 }

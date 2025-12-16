@@ -106,6 +106,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.muhammad = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     description = "muhammad";
     extraGroups = ["networkmanager" "wheel" "audio"];
     packages = with pkgs; [
@@ -121,6 +122,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  #zsh enable
+  programs.zsh.enable = true;
+  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

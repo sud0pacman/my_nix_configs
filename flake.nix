@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = inputs @ {nixpkgs, ...}: let
+  outputs = inputs @ {nixpkgs, home-manager, ...}: let
     pkgs = nixpkgs.legacyPackages."x86_64-linux";
   in {
     devShells."x86_64-linux".default = import ./shell.nix {inherit pkgs;};
@@ -25,6 +25,17 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+
+          # TODO replace ryan with your own username
+          home-manager.users.muhammad = import ./home.nix;
+
+          # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+        }
       ];
 
       specialArgs = {
