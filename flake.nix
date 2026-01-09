@@ -6,16 +6,6 @@
     # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Nixpkgs for darwin
-    # nix-darwin = {
-    #   url = "github:lnl7/nix-darwin/master";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # sops-nix = {
-    #   url = "github:Mic92/sops-nix";
-    #   # inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     # Flake utils for eachSystem
     flake-utils.url = "github:numtide/flake-utils";
 
@@ -84,10 +74,6 @@
       url = "github:xinux-org/modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    auto_profile_tg = {
-      url = "github:bahrom04/auto-profile-tg";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -122,19 +108,9 @@
       ];
 
       # see: https://isabelroses.com/blog/im-not-mad-im-disappointed/
-      nixosConfigurations.matax = inputs.nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/matax/configuration.nix
-        ];
-
-        specialArgs = {
-          inherit inputs;
-        };
-      };
-
-      nixosConfigurations.dell = inputs.nixpkgs.lib.nixosSystem {
-        modules = [
-          ./hosts/dell/configuration.nix
         ];
 
         specialArgs = {

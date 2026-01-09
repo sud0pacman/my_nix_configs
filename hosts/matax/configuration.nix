@@ -15,29 +15,10 @@
     inputs.self.homeModules.nixpkgs
     inputs.self.homeModules.desktop
     inputs.self.homeModules.keyboard
-    inputs.self.homeModules.users.bahrom04
+    inputs.self.homeModules.users.muhammad
   ];
 
-  networking.hostName = "matax";
-  
-  programs.nix-data = {
-    enable = true;
-    systemconfig = "/home/bahrom/workplace/bahrom04/nix-config/hosts/matax/configuration.nix";
-    flake = "/home/bahrom/workplace/bahrom04/nix-config/flake.nix";
-    flakearg = "matax";
-  };
-  #auto_profile_tg = {
-  #  enable = false;
-  #  api_id = config.sops.secrets.api_id.path;
-  #  api_hash = config.sops.secrets.api_hash.path;
-  #  phone_number = config.sops.secrets.phone_number.path;
-  #  first_name = config.sops.secrets.first_name.path;
-  #  lat = config.sops.secrets.lat.path;
-  #  lon = config.sops.secrets.lon.path;
-  #  timezone = config.sops.secrets.timezone.path;
-  #  city = config.sops.secrets.city.path;
-  #  weather_api_key = config.sops.secrets.weather_api_key.path;
-  #};
+  networking.hostName = "muhammad";
 
   # remove all gnome utility apps
   # services.gnome.core-utilities.enable = false;

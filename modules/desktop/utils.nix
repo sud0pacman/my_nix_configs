@@ -4,7 +4,6 @@
   config,
   ...
 }: let
-  age_keys = "${config.users.users.bahrom.home}/.config/sops/age/keys.txt";
   xinux-wallpapers = pkgs.lib.recurseIntoAttrs (pkgs.callPackage ./wallpapers.nix {});
   alejandra = inputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system};
 in {
@@ -13,8 +12,7 @@ in {
 
     environment = {
       variables = {
-        EDITOR = "vim";
-        SOPS_AGE_KEY_FILE = age_keys;
+        EDITOR = "nvim";
       };
       systemPackages = with pkgs; [
         # fonts

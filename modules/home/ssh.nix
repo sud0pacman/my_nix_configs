@@ -7,7 +7,7 @@
         # Uzinfocom
         kolyma-1 = {
           port = 22;
-          user = "bahrom04";
+          user = "muhammad";
           hostname = "ns1.kolyma.uz";
           # Server keep alive
           serverAliveInterval = 30;

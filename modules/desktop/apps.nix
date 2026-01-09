@@ -18,13 +18,13 @@ in {
         pkgs.authenticator
         pkgs.libreoffice
         pkgs.gnome-boxes
-        pkgs.prismlauncher
+        # pkgs.prismlauncher
         pkgs.thunderbird
         pkgs.onlyoffice-desktopeditors
-        pkgs.postman
+        # pkgs.postman
         # pkgs.poedit
 
-        pkgs.googleearth-pro
+        # pkgs.googleearth-pro
         pkgs.google-chrome
         pkgs.chromium
         pkgs.github-desktop
@@ -39,7 +39,7 @@ in {
         xinux-module-manager
         nixos-conf-editor
         e-imzo-manager
-        pkgs.snowfallorg.drift
+        # pkgs.snowfallorg.drift
       ];
       # exclude apps
       # gnome.excludePackages = with pkgs; [

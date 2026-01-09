@@ -18,8 +18,8 @@
 
   # home.keyboard = null;
   home = {
-    username = "bahrom";
-    homeDirectory = "/home/bahrom";
+    username = "muhammad";
+    homeDirectory = "/home/muhammad";
 
     keyboard = {
       layout = "uz";

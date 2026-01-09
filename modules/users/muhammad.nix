@@ -4,14 +4,14 @@
   outputs,
   ...
 }: let
-  hashedPassword = "$2b$05$QgiAihjGOtxfGZ06pfm2u.dMR6522sT2Pmy4mt//Rf2x5YonDcD.2";
+  hashedPassword = "$y$j9T$RxLtWEhvSkRE/8Vp4G5TG/$Yy5wbbP/xVIzNxpxd1c1psDEgHcMAwHp2PPyNWF.yq7";
 in {
   config = {
     users.users = {
-      bahrom = {
+      muhammad = {
         inherit hashedPassword;
         isNormalUser = true;
-        description = "Bahrom";
+        description = "Muhammad";
         shell = pkgs.zsh;
 
         extraGroups = [
@@ -27,9 +27,9 @@ in {
 
         openssh.authorizedKeys.keys = [
           # dll
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDH+EVAeaZpe98gggH8fPQ4bKEgw2FbTqYzngTRSpSbp magdiyevbahrom04@gmail.com"
-          # mtx
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEJjeEUMVe4fyRXVGbG4UvQiSACjPv/AEdyytIazfgT magdiyevbahrom@gmail.com"
+          # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDH+EVAeaZpe98gggH8fPQ4bKEgw2FbTqYzngTRSpSbp magdiyevbahrom04@gmail.com"
+          # # mtx
+          # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEJjeEUMVe4fyRXVGbG4UvQiSACjPv/AEdyytIazfgT magdiyevbahrom@gmail.com"
           # add more
         ];
       };
@@ -42,7 +42,7 @@ in {
       };
       users = {
         # Import your home-manager configuration
-        bahrom = import ../../hosts/matax/home.nix;
+        muhammad = import ../../hosts/matax/home.nix;
       };
     };
   };
