@@ -40,15 +40,38 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware = {
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      powerManagement.finegrained = false;
-      open = true;
-      nvidiaSettings = true;
-    };
-    graphics.enable = true;
+  # hardware = {
+  #   nvidia = {
+  #     modesetting.enable = true;
+  #     powerManagement.enable = true;
+  #     powerManagement.finegrained = false;
+  #     open = true;
+  #     nvidiaSettings = true;
+  #   };
+  #   graphics.enable = true;
+  # };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    nvidiaPersistenced = false;
+    dynamicBoost.enable = false;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      mesa
+      libvdpau
+      libva-vdpau-driver
+      libva
+      vulkan-loader
+      vulkan-validation-layers
+    ];
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
