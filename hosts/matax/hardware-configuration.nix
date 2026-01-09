@@ -38,14 +38,17 @@
   # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
- services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    open = false; 
-    nvidiaSettings = true;
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      powerManagement.finegrained = false;
+      open = true;
+      nvidiaSettings = true;
+    };
+    graphics.enable = true;
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
