@@ -15,4 +15,5 @@
   packages = import ./packages.nix;
   fastfetch = import ./fastfetch.nix;
   zen-browser = import ./zen-browser.nix;
+  gnome = import ./gnome.nix;
 }

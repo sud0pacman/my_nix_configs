@@ -44,4 +44,6 @@
     pkgs.firefox
     pkgs.gradia
   ];
+
+  programs.dconf.enable = true;
 }
