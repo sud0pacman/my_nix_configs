@@ -8,12 +8,10 @@
     homeModules.home.ssh
     homeModules.home.fish
     homeModules.home.vscode
-    #homeModules.home.haskell
     homeModules.home.starship
     homeModules.home.packages
     homeModules.home.fastfetch
-    #outputs.homeModules.home.zen-browser
-    # outputs.homeModules.services.espanso
+    homeModules.home.gnome
   ];
 
   # home.keyboard = null;
