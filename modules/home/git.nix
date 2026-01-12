@@ -11,17 +11,17 @@
         http.sslVerify = false;
         pull.rebase = false;
 
-        # safe.directory = [
-        #   "/home/bahrom/workplace/bahrom04/nix-config"
-        #   # Add other safe directories here if needed
-        # ];
+        safe.directory = [
+          "/home/bahrom/workplace/sud0pacman/nix-config"
+          # Add other safe directories here if needed
+        ];
       };
     };
 
-    # signing = {
-    #   signByDefault = true;
-    #   key = "6F392032DFAA7D70C243AE2CB21C6C3287D8517F";
-    # };
+    signing = {
+      signByDefault = true;
+      key = "6B6DB2AD85328F7F60C90EE7048B06C0FCE32C10";
+    };
 
     # Git ignores
     ignores = [
