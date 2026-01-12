@@ -34,7 +34,7 @@
     pkgs.boltbrowser
     pkgs.kstars
     pkgs.gnome-solanum
-    pkgs.nextcloud-client
+    # pkgs.nextcloud-client
     pkgs.icon-library
     pkgs.calamares-nixos
     pkgs.gnome-podcasts
