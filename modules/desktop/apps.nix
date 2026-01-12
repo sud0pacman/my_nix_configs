@@ -18,13 +18,11 @@ in {
         pkgs.authenticator
         pkgs.libreoffice
         pkgs.gnome-boxes
-        # pkgs.prismlauncher
         pkgs.thunderbird
         pkgs.onlyoffice-desktopeditors
         # pkgs.postman
         # pkgs.poedit
 
-        # pkgs.googleearth-pro
         pkgs.google-chrome
         pkgs.chromium
         pkgs.github-desktop
