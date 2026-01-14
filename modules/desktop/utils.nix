@@ -47,6 +47,8 @@ in {
         xinux-wallpapers.xinux-blue-light
         xinux-wallpapers.xinux-blue-dark
         xinux-wallpapers.xinux-orange
+
+        anydesk
       ];
     };
   };

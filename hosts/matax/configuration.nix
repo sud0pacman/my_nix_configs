@@ -17,7 +17,7 @@
     inputs.self.homeModules.keyboard
     inputs.self.homeModules.users.muhammad
   ];
-
+  
   networking.hostName = "muhammad";
 
   # remove all gnome utility apps
