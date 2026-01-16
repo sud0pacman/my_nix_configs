@@ -1,6 +1,9 @@
 {pkgs, ...}: {
-  config = {
-    fonts.packages = with pkgs; [
+  config.fonts = {
+    fontDir.enable = true;
+    enableDefaultPackages = true;
+    
+    packages = with pkgs; [
       corefonts
       # General Noto fonts
       noto-fonts
@@ -28,16 +31,12 @@
       iosevka
     ];
 
-    fonts = {
-      fontDir.enable = true;
-      enableDefaultPackages = true;
-      
-      fontconfig = {
-        defaultFonts = {
-          serif = ["Times Newer Roman"];
-          sansSerif = ["Noto Sans"];
-          monospace = ["Iosevka"];
-        };
+
+    fontconfig = {
+      defaultFonts = {
+        serif = ["Times Newer Roman"];
+        sansSerif = ["Noto Sans"];
+        monospace = ["Iosevka"];
       };
     };
   };
