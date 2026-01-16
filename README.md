@@ -5,6 +5,15 @@
     </picture>
 </p>
 
+<p align="center">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/nix-config-header.png">
+        <img alt="Welcome Image" src="https://github.com/user-attachments/assets/774b8f9b-1dfa-4f79-863c-c8b2dba726ec">
+    </picture>
+</p>
+<!-- <img width="1920" height="1080" alt="image_2026-01-16_11-59-16" src="https://github.com/user-attachments/assets/774b8f9b-1dfa-4f79-863c-c8b2dba726ec" /> -->
+
+
 # NixOS
 ```bash
 sudo nixos-rebuild switch --flake .#nixos #use hostname here
