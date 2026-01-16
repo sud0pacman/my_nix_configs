@@ -49,6 +49,7 @@ in {
         xinux-wallpapers.xinux-orange
 
         anydesk
+	kazam
       ];
     };
   };
