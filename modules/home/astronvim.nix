@@ -26,6 +26,7 @@
       gdu
       lazygit
       python3
+      ripgrep
 
       lua-language-server
       luarocks
