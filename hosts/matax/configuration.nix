@@ -45,5 +45,7 @@
     pkgs.gradia
   ];
 
+  nixpkgs.config.allowUnsupportedSystem = true;
+
   programs.dconf.enable = true;
 }

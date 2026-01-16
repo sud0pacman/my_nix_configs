@@ -16,4 +16,5 @@
   fastfetch = import ./fastfetch.nix;
   zen-browser = import ./zen-browser.nix;
   gnome = import ./gnome.nix;
+  astronvim = import ./astronvim.nix;
 }

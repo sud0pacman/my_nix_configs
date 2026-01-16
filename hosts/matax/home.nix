@@ -12,6 +12,7 @@
     homeModules.home.packages
     homeModules.home.fastfetch
     homeModules.home.gnome
+    homeModules.home.astronvim
   ];
 
   # home.keyboard = null;
