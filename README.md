@@ -7,7 +7,7 @@
 
 <p align="center">
     <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/nix-config-header.png">
+        <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/774b8f9b-1dfa-4f79-863c-c8b2dba726ec">
         <img alt="Welcome Image" src="https://github.com/user-attachments/assets/774b8f9b-1dfa-4f79-863c-c8b2dba726ec">
     </picture>
 </p>
