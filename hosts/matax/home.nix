@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = with inputs.self; [
     homeModules.direnv
     homeModules.nixpkgs
@@ -13,6 +14,7 @@
     homeModules.home.fastfetch
     homeModules.home.gnome
     homeModules.home.astronvim
+    homeModules.home.alacritty
   ];
 
   # home.keyboard = null;

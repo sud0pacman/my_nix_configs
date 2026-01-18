@@ -3,10 +3,12 @@
   inputs,
   config,
   ...
-}: let
-  xinux-wallpapers = pkgs.lib.recurseIntoAttrs (pkgs.callPackage ./wallpapers.nix {});
+}:
+let
+  xinux-wallpapers = pkgs.lib.recurseIntoAttrs (pkgs.callPackage ./wallpapers.nix { });
   alejandra = inputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system};
-in {
+in
+{
   config = {
     programs.nix-ld.enable = true;
 
@@ -49,8 +51,8 @@ in {
         xinux-wallpapers.xinux-orange
 
         anydesk
-	      kazam
         alacritty
+        simplescreenrecorder
       ];
     };
   };
