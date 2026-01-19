@@ -15,6 +15,7 @@
     homeModules.home.gnome
     homeModules.home.astronvim
     homeModules.home.alacritty
+    homeModules.home.zellij
   ];
 
   # home.keyboard = null;

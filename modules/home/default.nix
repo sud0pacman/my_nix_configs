@@ -18,4 +18,5 @@
   gnome = import ./gnome.nix;
   astronvim = import ./astronvim.nix;
   alacritty = import ./alacritty/alacritty.nix;
+  zellij = import ./zellij.nix;
 }
